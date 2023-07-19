@@ -10,6 +10,31 @@ src/app/app.component.scss
 ║ .test-css-lib-load-paths ║
 ║ .unused                  ║
 ╚══════════════════════════╝
+src/app/article/article/article.component.html
+src/app/article/article/article.component.scss
+╔═══════════════╗
+║ .article-test ║
+╚═══════════════╝
+src/app/test-component/test-component.component.html
+src/app/test-component/test-component.component.scss
+╔═══════════════════════╗
+║ .test-component-class ║
+╚═══════════════════════╝
+src/app/test-component-html/test-component-html.component.html
+src/app/test-component-html/test-component-html.component.scss
+╔════════════════════════════╗
+║ .test-component-html-class ║
+╚════════════════════════════╝
+src/app/test-component-scss/test-component-scss.component.ts
+src/app/test-component-scss/test-component-scss.component.ts
+╔════════════════════════════╗
+║ .test-component-scss-class ║
+╚════════════════════════════╝
+src/app/test-component-ts/test-component-ts.component.ts
+src/app/test-component-ts/test-component-ts.component.ts
+╔══════════════════════════╗
+║ .test-component-ts-class ║
+╚══════════════════════════╝
 ***** GLOBAL UNUSED CSS *****
 ***** GLOBAL UNUSED CSS *****
 ╔════════════════════╗

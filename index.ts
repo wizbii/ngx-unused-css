@@ -6,7 +6,7 @@ Find unused css inside Angular components
 import fs from 'fs';
 import meow from 'meow';
 import path from 'path';
-import { Config } from './src/config';
+import { InputConfig } from './src/config';
 import init from './src/init';
 
 const defaultConfigPath = '.ngx-unused-css.json';
@@ -32,7 +32,7 @@ const cli = meow(
   }
 );
 
-let config: Config;
+let config: InputConfig;
 
 if (cli.flags.init) {
   init();

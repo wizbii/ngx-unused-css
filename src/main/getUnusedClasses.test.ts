@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import mock from 'mock-fs';
 import { Config } from '../config';
-import findHtml from './../helpers/findHtml';
+import findHtmlOrTs from './../helpers/findHtmlOrTs';
 import findUnusedCss from './findUnusedCss';
 import UnusedClasses from './getUnusedClasses';
 
-jest.mock('./../helpers/findHtml', () => jest.fn());
+jest.mock('./../helpers/findHtmlOrTs', () => jest.fn());
 jest.mock('./findUnusedCss', () => jest.fn());
 jest.mock('../..', () => jest.fn());
 
@@ -23,7 +24,7 @@ describe('GetUnusedClasses', () => {
     });
 
     // @ts-ignore
-    findHtml.mockImplementation(() => {
+    findHtmlOrTs.mockImplementation(() => {
       return ['file.html'];
     });
   });

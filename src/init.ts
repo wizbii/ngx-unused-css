@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import prompts from 'prompts';
-import { Config } from './config';
+import { InputConfig } from './config';
 
 const questions: prompts.PromptObject<string>[] = [
   {
@@ -37,7 +37,7 @@ export default async function init() {
 
   const feedback = [];
 
-  const config: Config = {
+  const config: InputConfig = {
     path: '',
     ignore: []
   };

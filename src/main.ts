@@ -1,19 +1,20 @@
 import chalk from 'chalk';
 import { table } from 'table';
-import { Config } from './config';
+import { Config, InputConfig } from './config';
 import { DEFAULT_STYLE_EXTENSION } from './constants';
 import { UnusedClassesMap } from './helpers/unusedClassMapper';
 import UnusedClasses from './main/getUnusedClasses';
 
 export default class Main {
-  private config: Config;
+  private readonly config: Config;
 
-  constructor(config: Config) {
-    this.config = config;
-
-    if (!config.styleExt) {
-      config.styleExt = DEFAULT_STYLE_EXTENSION;
-    }
+  constructor(config: InputConfig) {
+    this.config = {
+      ...config,
+      ...(config.styleExt
+        ? { styleExt: config.styleExt }
+        : { styleExt: DEFAULT_STYLE_EXTENSION })
+    };
 
     this.run()
       .then((r) => {

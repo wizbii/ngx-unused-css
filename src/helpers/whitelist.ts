@@ -17,6 +17,7 @@ export default function whitelist(
   const ignoreFileMatched = fileToIgnore(cssPath);
 
   const ignoreSelectors = SELECTORS_TO_IGNORE.concat(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     ignore && ignore.filter((c) => typeof c === 'string')
   );

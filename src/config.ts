@@ -1,4 +1,5 @@
 import { FileImporter, Importer } from 'sass';
+import { SetRequired } from 'type-fest';
 
 export interface Ignore {
   file: string;
@@ -8,7 +9,7 @@ export interface Ignore {
 
 export type SupportedStyleExtensions = 'scss' | 'sass' | 'css';
 
-export interface Config {
+export interface InputConfig {
   path: string;
   styleExt?: SupportedStyleExtensions;
   ignore: (string | Ignore)[];
@@ -16,3 +17,5 @@ export interface Config {
   includePaths?: string[];
   globalStyles?: string;
 }
+
+export type Config = SetRequired<InputConfig, 'styleExt'>;

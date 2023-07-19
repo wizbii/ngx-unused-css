@@ -1,13 +1,16 @@
 import path from 'path';
 import sass from 'sass';
 import { pathToFileURL } from 'url';
-import { Config } from '../config';
+import { InputConfig } from '../config';
 
 /**
  * Compile styling file
- * @param {string} cssPath
+ * @param {string} cssOrTsPath
  */
-export default function compileSCSS(cssPath: string, config: Config): string {
+export default function compileSCSS(
+  cssOrTsPath: string,
+  config: InputConfig
+): string {
   const options: sass.Options<'sync'> = {
     importers: [
       {
@@ -29,7 +32,7 @@ export default function compileSCSS(cssPath: string, config: Config): string {
     options.importers?.push(config.importer);
   }
 
-  const result = sass.compile(cssPath, options);
+  const result = sass.compile(cssOrTsPath, options);
 
   return result.css.toString();
 }

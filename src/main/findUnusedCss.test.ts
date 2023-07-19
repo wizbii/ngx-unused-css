@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Config } from '../config';
 import parseNgClass from './../helpers/parseNgClass';
 import whitelist from './../helpers/whitelist';

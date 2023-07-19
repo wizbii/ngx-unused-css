@@ -26,6 +26,9 @@
     "detect",
     "find"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Wizbii",
   "license": "ISC",
   "dependencies": {

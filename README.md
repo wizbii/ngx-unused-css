@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/ivanblazevic/ngx-unused-css.svg?branch=master)](https://travis-ci.org/ivanblazevic/ngx-unused-css)
-[![Inline docs](http://inch-ci.org/github/ivanblazevic/ngx-unused-css.svg?branch=master)](http://inch-ci.org/github/ivanblazevic/ngx-unused-css)
-
-[![npm](https://nodei.co/npm/ngx-unused-css.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/ngx-unused-css)
+[![npm](https://nodei.co/npm/@wizbii/ngx-unused-css.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@wizbii/ngx-unused-css)
 
 # Angular unused css detection
 
@@ -9,28 +6,25 @@
 
 - sass lib has been upgraded to latest version therefore custom importer configuration needs to be changed,
   refer to: https://sass-lang.com/documentation/js-api/interfaces/FileImporter
-- 
+-
 
 ## Quick setup
 
-`npx ngx-unused-css --init`
+`npx @wizbii/ngx-unused-css --init`
 
-`npm i -D ngx-unused-css`
+`npm i -D @wizbii/ngx-unused-css`
 
 Add script into `package.json` and run it:
 
-`
-  "scripts": {
+`  "scripts": {
     ...
     "unused-css": "ngx-unused-css"
     ...
-  }
-`
+  }`
 
 ## How does it works
 
-- it finds all `.html` files inside the project and then pairs it with their styling files;
-  e.g. app.component.html > app.component.scss
+- it finds all `.html` files inside the project and then pairs it with their styling files, if not it extract css that is is in ts files
 - if pair is matched then it will compare unused css using PurgeCSS library
 - SCSS will be automatically compiled before the matching phase
 - some system selectors like `:host` or `::ng-deep` will be ignored
@@ -39,11 +33,11 @@ Add script into `package.json` and run it:
 
 ## Installation
 
-Global: `npm install -g ngx-unused-css`
+Global: `npm install -g @wizbii/ngx-unused-css`
 
 or
 
-Local: `npm install ngx-unused-css --save-dev`
+Local: `npm install @wizbii/ngx-unused-css --save-dev`
 
 ### Add configuration file in the root of the project
 

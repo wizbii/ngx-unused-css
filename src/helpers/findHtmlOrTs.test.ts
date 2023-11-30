@@ -1,9 +1,11 @@
-import mock from 'mock-fs';
+import { vol } from 'memfs';
 import findHtmlOrTs from './findHtmlOrTs';
+
+jest.mock('fs');
 
 describe('findHtmlOrTs', () => {
   beforeEach(() => {
-    mock({
+    vol.fromNestedJSON({
       base: {
         'somefile.component.html': 'file content here',
         'somefilets.component.ts': 'file content here',
@@ -15,8 +17,8 @@ describe('findHtmlOrTs', () => {
     });
   });
 
-  afterAll(() => {
-    mock.restore();
+  afterEach(() => {
+    vol.reset();
   });
 
   it('should return array of html files', () => {

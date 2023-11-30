@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import mock from 'mock-fs';
+import { vol } from 'memfs';
 import { Config } from '../config';
-import findHtmlOrTs from './../helpers/findHtmlOrTs';
 import findUnusedCss from './findUnusedCss';
 import UnusedClasses from './getUnusedClasses';
 
-jest.mock('./../helpers/findHtmlOrTs', () => jest.fn());
+jest.mock('fs');
+jest.mock('./../helpers/findHtmlOrTs', () =>
+  jest.fn().mockReturnValue(['file.html'])
+);
 jest.mock('./findUnusedCss', () => jest.fn());
 jest.mock('../..', () => jest.fn());
 
@@ -17,20 +19,11 @@ const mockFindUnusedCss = (returnValue: string[]) => {
 };
 
 describe('GetUnusedClasses', () => {
-  beforeAll(() => {
-    mock({
-      'file.html': 'file.html',
-      'file.scss': 'file.scss'
+  beforeEach(() => {
+    vol.fromNestedJSON({
+      'file.html': 'content file html',
+      'file.scss': 'content file scss'
     });
-
-    // @ts-ignore
-    findHtmlOrTs.mockImplementation(() => {
-      return ['file.html'];
-    });
-  });
-
-  afterAll(() => {
-    mock.restore();
   });
 
   it('should return empty array if no unused css files', async () => {
@@ -49,5 +42,9 @@ describe('GetUnusedClasses', () => {
       styleExt: 'scss'
     } as unknown as Config).getUnusedClasses('');
     expect(result).toEqual([[['class1'], 'file.html']]);
+  });
+
+  afterEach(() => {
+    vol.reset();
   });
 });
